@@ -67,9 +67,106 @@ public class GiocatoreController {
 			return new ResponseEntity<List<Giocatore>>(lista, HttpStatus.ACCEPTED);
 		}
 	}
+
 	@GetMapping("/trovaSquadra/{nome}")
-	public List<Giocatore> trovaGiocatoreDaTeam(@PathVariable String nome) {
-		return gs.trovaDaTeam(nome);
+	public ResponseEntity<List<Giocatore>> trovaGiocatoreDaTeam(@PathVariable String nome) {
+		List<Giocatore> lista = gs.trovaDaTeam(nome);
+		if (lista.isEmpty()) {
+			return new ResponseEntity<List<Giocatore>>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Giocatore>>(lista, HttpStatus.ACCEPTED);
+		}
+
+	}
+
+	@GetMapping("/PerPunti")
+	public ResponseEntity<?> ordinaPerPunti() {
+		List<Giocatore> lista = gs.ordinaPerPunti();
+		if (lista.isEmpty()) {
+			return new ResponseEntity<List<Giocatore>>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Giocatore>>(lista, HttpStatus.ACCEPTED);
+		}
+	}
+
+	@GetMapping("/Da3")
+	public ResponseEntity<?> percentualeDa3() {
+		List<Giocatore> lista = gs.ordinaPerPunti();
+		if (lista.isEmpty()) {
+			return new ResponseEntity<List<Giocatore>>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Giocatore>>(lista, HttpStatus.ACCEPTED);
+		}
+	}
+
+	@GetMapping("/Da2")
+	public ResponseEntity<?> percentualeDa2() {
+		List<Giocatore> lista = gs.ordinaPerPunti();
+		if (lista.isEmpty()) {
+			return new ResponseEntity<List<Giocatore>>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Giocatore>>(lista, HttpStatus.ACCEPTED);
+		}
+	}
+
+	@GetMapping("/assist")
+	public ResponseEntity<?> assist() {
+		List<Giocatore> lista = gs.assist();
+		if (lista.isEmpty()) {
+			return new ResponseEntity<List<Giocatore>>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Giocatore>>(lista, HttpStatus.ACCEPTED);
+		}
+	}
+
+	@GetMapping("/palleRubate")
+	public ResponseEntity<?> palleRubate() {
+		List<Giocatore> lista = gs.palleRubate();
+		if (lista.isEmpty()) {
+			return new ResponseEntity<List<Giocatore>>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Giocatore>>(lista, HttpStatus.ACCEPTED);
+		}
+	}
+
+	@GetMapping("/Stoppate")
+	public ResponseEntity<?> Stoppate() {
+		List<Giocatore> lista = gs.Stoppate();
+		if (lista.isEmpty()) {
+			return new ResponseEntity<List<Giocatore>>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Giocatore>>(lista, HttpStatus.ACCEPTED);
+		}
+	}
+
+	@GetMapping("/trovaDaPosizione/{nome}")
+	public ResponseEntity<List<Giocatore>> trovaGiocatoreDaPosizione(@PathVariable String nome) {
+		List<Giocatore> lista = gs.trovaDaPosizione(nome);
+		if (lista.isEmpty()) {
+			return new ResponseEntity<List<Giocatore>>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Giocatore>>(lista, HttpStatus.ACCEPTED);
+		}
+	}
+
+	@GetMapping("/partiteGiocateRange/{val1}/{val2}")
+	public ResponseEntity<?> partiteParametrizzate(@PathVariable int val1, @PathVariable int val2) {
+		List<Giocatore> lista = gs.partiteGiocateParam(val1, val2);
+		if (lista.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>(lista, HttpStatus.ACCEPTED);
+		}
+	}
+
+	@GetMapping("/puntiGiocatoreRange/{val1}/{val2}")
+	public ResponseEntity<?> punteggiParametrizzate(@PathVariable int val1, @PathVariable int val2) {
+		List<Giocatore> lista = gs.puntiGiocateParam(val1, val2);
+		if (lista.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>(lista, HttpStatus.ACCEPTED);
+		}
 	}
 
 }

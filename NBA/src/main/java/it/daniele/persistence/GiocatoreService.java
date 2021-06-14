@@ -96,7 +96,108 @@ public class GiocatoreService {
 	}
 
 	public List<Giocatore> trovaDaTeam(String abb) {
-		return gr.findByteamTeamAbbreviation(abb);
+		List<Giocatore> risultato = gr.findByteamTeamAbbreviation(abb);
+		if (risultato.isEmpty()) {
+			return null;
+		} else {
+			return risultato;
+		}
+	}
+
+	public List<Giocatore> ordinaPerPunti() {
+		List<Giocatore> ordinamento = gr.ordinaPerpercentualePuntiDesc();
+		if (ordinamento.isEmpty()) {
+			return null;
+		} else {
+			return ordinamento;
+		}
+	}
+
+	public List<Giocatore> ordinaPartiteGiocate() {
+		List<Giocatore> liste = gr.ordinaPerpartiteGiocateDesc();
+		if (liste.isEmpty()) {
+			return null;
+		} else {
+			return liste;
+		}
+	}
+
+	public List<Giocatore> percentualeDa3() {
+		List<Giocatore> liste = gr.ordinaPerpercentualeDa3Desc();
+		if (liste.isEmpty()) {
+			return null;
+		} else {
+			return liste;
+		}
+	}
+
+	public List<Giocatore> percentualeDa2() {
+		List<Giocatore> liste = gr.ordinaPerPercentualeDa2Desc();
+		if (liste.isEmpty()) {
+			return null;
+		} else {
+			return liste;
+		}
+	}
+
+	public List<Giocatore> assist() {
+		List<Giocatore> liste = gr.ordinaPerassistDesc();
+		if (liste.isEmpty()) {
+			return null;
+		} else {
+			return liste;
+		}
+	}
+
+	public List<Giocatore> palleRubate() {
+		List<Giocatore> liste = gr.ordinaPerPalleRubateDesc();
+		if (liste.isEmpty()) {
+			return null;
+		} else {
+			return liste;
+		}
+	}
+
+	public List<Giocatore> Stoppate() {
+		List<Giocatore> liste = gr.ordinaPerStoppateDesc();
+		if (liste.isEmpty()) {
+			return null;
+		} else {
+			return liste;
+		}
+	}
+
+	public List<Giocatore> trovaDaPosizione(String nome) {
+		List<Giocatore> lista = gr.findByposizione(nome);
+		if (lista.isEmpty()) {
+			return null;
+		} else {
+			return lista;
+		}
+	}
+
+	public List<Giocatore> partiteGiocateParam(int val1, int val2) {
+		String valore1 = Integer.toString(val1);
+		String valore2 = Integer.toString(val2);
+		List<Giocatore> lista = gr.findBypartiteGiocateBetween(valore1, valore2);
+		if (lista.isEmpty()) {
+			return null;
+		} else {
+			return lista;
+		}
+
+	}
+
+	public List<Giocatore> puntiGiocateParam(int val1, int val2) {
+		String valore1 = Integer.toString(val1);
+		String valore2 = Integer.toString(val2);
+		List<Giocatore> lista = gr.findBypercentualePuntiBetween(valore1, valore2);
+		if (lista.isEmpty()) {
+			return null;
+		} else {
+			return lista;
+		}
+
 	}
 
 }

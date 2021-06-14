@@ -22,5 +22,8 @@ public class Team {
 	private List<Giocatore> giocatore;
 	@ManyToOne
 	private Conference conference;
+	@JsonIgnore
+	@OneToMany(mappedBy = "teamDraftedBy")
+	private List<Drafted> draft;
 
 }
