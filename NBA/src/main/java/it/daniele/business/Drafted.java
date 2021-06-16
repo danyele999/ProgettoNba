@@ -9,13 +9,11 @@ import lombok.Data;
 @Entity
 @Data
 public class Drafted {
-	
+
 	@Id
-	private int rank;
+	private Long rank;
 	@ManyToOne
 	private Team teamDraftedBy;
 	private String player;
-	private String college;
-	
 
 }
