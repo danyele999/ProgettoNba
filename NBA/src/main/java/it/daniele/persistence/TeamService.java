@@ -44,4 +44,22 @@ public class TeamService {
 		return tr.findAll();
 	}
 
+	public List<Team> abbreviazioneTeam(String nome) {
+		List<Team> list = tr.findByteamAbbreviation(nome);
+		if (list.isEmpty()) {
+			return null;
+		} else {
+			return list;
+		}
+	}
+
+	public List<Team> trovaDaConference(String nome) {
+		List<Team> team = tr.trovaPerConference(nome);
+		if (team.isEmpty()) {
+			return null;
+		} else {
+			return team;
+		}
+	}
+
 }

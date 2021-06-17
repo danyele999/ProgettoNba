@@ -65,4 +65,25 @@ public class TeamController {
 		return new ResponseEntity<>(ts.trovaTutti(), HttpStatus.OK);
 	}
 
+	@GetMapping("/abbreviazione/{nome}")
+	public ResponseEntity<List<Team>> abbreviazione(@PathVariable String nome) {
+		List<Team> lista = ts.abbreviazioneTeam(nome);
+		if (lista.isEmpty()) {
+			return new ResponseEntity<List<Team>>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Team>>(lista, HttpStatus.ACCEPTED);
+		}
+
+	}
+
+	@GetMapping("/conferenceName/{nome}")
+	public ResponseEntity<List<Team>> conferenceN(@PathVariable String nome) {
+		List<Team> te = ts.trovaDaConference(nome);
+		if (te.isEmpty()) {
+			return new ResponseEntity<List<Team>>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<List<Team>>(te, HttpStatus.OK);
+		}
+	}
+
 }
