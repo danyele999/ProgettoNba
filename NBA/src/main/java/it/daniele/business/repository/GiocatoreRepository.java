@@ -13,7 +13,7 @@ public interface GiocatoreRepository extends JpaRepository<Giocatore, String> {
 
 	List<Giocatore> findAll();
 
-	List<Giocatore> findByteamTeamAbbreviation(String abbreviazione);
+	List<Giocatore> findAllByteamTeamAbbreviation(String abbreviazione);
 
 	@Query("SELECT g FROM Giocatore g ORDER BY g.percentualePunti")
 	List<Giocatore> ordinaPerpercentualePuntiDesc();

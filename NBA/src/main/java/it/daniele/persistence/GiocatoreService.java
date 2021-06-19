@@ -96,7 +96,7 @@ public class GiocatoreService {
 	}
 
 	public List<Giocatore> trovaDaTeam(String abb) {
-		List<Giocatore> risultato = gr.findByteamTeamAbbreviation(abb);
+		List<Giocatore> risultato = gr.findAllByteamTeamAbbreviation(abb);
 		if (risultato.isEmpty()) {
 			return null;
 		} else {
