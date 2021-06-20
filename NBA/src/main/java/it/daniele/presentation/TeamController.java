@@ -66,12 +66,12 @@ public class TeamController {
 	}
 
 	@GetMapping("/abbreviazione/{nome}")
-	public ResponseEntity<List<Team>> abbreviazione(@PathVariable String nome) {
-		List<Team> lista = ts.abbreviazioneTeam(nome);
-		if (lista.isEmpty()) {
-			return new ResponseEntity<List<Team>>(HttpStatus.NOT_FOUND);
+	public ResponseEntity<Team> abbreviazione(@PathVariable String nome) {
+		Team lista = ts.abbreviazioneTeam(nome);
+		if (lista == null) {
+			return new ResponseEntity<Team>(HttpStatus.NOT_FOUND);
 		} else {
-			return new ResponseEntity<List<Team>>(lista, HttpStatus.ACCEPTED);
+			return new ResponseEntity<Team>(lista, HttpStatus.ACCEPTED);
 		}
 
 	}
@@ -90,7 +90,6 @@ public class TeamController {
 	public ResponseEntity<String> partita(@PathVariable String s1, @PathVariable String s2) {
 		return new ResponseEntity<>(ts.partita(s1, s2), HttpStatus.OK);
 
-		
 	}
 
 }

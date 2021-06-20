@@ -48,9 +48,9 @@ public class TeamService {
 		return tr.findAll();
 	}
 
-	public List<Team> abbreviazioneTeam(String nome) {
-		List<Team> list = tr.findByteamAbbreviation(nome);
-		if (list.isEmpty()) {
+	public Team abbreviazioneTeam(String nome) {
+		Team list = tr.findByteamAbbreviation(nome);
+		if (list == null) {
 			return null;
 		} else {
 			return list;
@@ -79,16 +79,18 @@ public class TeamService {
 					punteggioCasa += 2;
 				} else if (puntiG2 >= puntiG1) {
 					punteggioTrasferta += 2;
+
 				}
 			}
 		}
+		Team team1 = tr.findByteamAbbreviation(s1);
+		Team team2 = tr.findByteamAbbreviation(s2);
+
 		if (punteggioCasa > punteggioTrasferta) {
-			return "il vincitore e' " +s1 + " con " + punteggioCasa + " punti";
+			return "il vincitore e' " + team1.getTeamName() + " con " + punteggioCasa + " punti";
 		} else {
-			return "il vincitore e' " +s2 + " con " + punteggioTrasferta + " punti";
+			return "il vincitore e' " + team2.getTeamName() + " con " + punteggioTrasferta + " punti";
 		}
 	}
-
-
 
 }

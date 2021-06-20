@@ -13,7 +13,7 @@ public interface TeamRepository extends JpaRepository<Team, String> {
 
 	List<Team> findAll();
 
-	List<Team> findByteamAbbreviation(String nome);
+	Team findByteamAbbreviation(String nome);
 
 	@Query("SELECT t FROM Team t WHERE t.conference.conferenceName LIKE %:nome%")
 	List<Team> trovaPerConference(String nome);
