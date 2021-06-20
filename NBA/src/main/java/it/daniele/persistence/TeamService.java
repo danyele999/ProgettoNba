@@ -79,7 +79,6 @@ public class TeamService {
 					punteggioCasa += 2;
 				} else if (puntiG2 >= puntiG1) {
 					punteggioTrasferta += 2;
-
 				}
 			}
 		}
