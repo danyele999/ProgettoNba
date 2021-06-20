@@ -1,2 +1,3 @@
-GET http://localhost:8080/team/trova
-# GET http://localhost:8080/team/trova
+GET http://localhost:8080/team/partita/LAL/BOS
+
+#GET http://localhost:8080/team/trova/BOS
