@@ -89,6 +89,8 @@ public class TeamController {
 	@GetMapping("/partita/{s1}/{s2}")
 	public ResponseEntity<String> partita(@PathVariable String s1, @PathVariable String s2) {
 		return new ResponseEntity<>(ts.partita(s1, s2), HttpStatus.OK);
+
+		
 	}
 
 }
